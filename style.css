@@ -164,6 +164,73 @@ body.dark-mode .btn-nav:hover {
     background-color: var(--primary); /* E clareia levemente no hover */
 }
 
+/* ============================================================
+   MENU HAMBURGUER (ESTRUTURA BASE)
+   ============================================================ */
+
+/* Esconde o botão hamburguer no computador */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1000; /* Garante que o ícone fique por cima do menu aberto */
+}
+
+/* Estilo das 3 listras do ícone */
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #4A6B62; /* Verde do seu site */
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ============================================================
+   AJUSTE PARA CELULAR (MOBILE) - MENU
+   ============================================================ */
+@media (max-width: 768px) {
+    /* 1. Mostra o ícone hamburguer */
+    .menu-toggle {
+        display: flex; 
+    }
+
+    /* 2. Esconde a caixa do menu por padrão */
+    .nav-menu {
+        display: none; /* Fica escondido até o clique */
+        position: absolute;
+        top: 100%; /* Faz o menu abrir logo abaixo do cabeçalho */
+        left: 0;
+        width: 100%;
+        background-color: #F7F5F0; /* Fundo Areia */
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        padding: 25px 0;
+        z-index: 999;
+    }
+
+    /* 3. Classe que o JavaScript vai ativar para mostrar o menu */
+    .nav-menu.active {
+        display: block; 
+    }
+
+    /* 4. Organiza a lista (ul) em uma coluna centralizada */
+    .nav-menu ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza tudo */
+        gap: 25px; /* Espaço entre os links */
+        margin: 0;
+        padding: 0;
+    }
+
+    /* 5. Ajusta o botão de Agendar para ficar em formato de pílula */
+    .nav-menu ul li .btn-nav {
+        border-radius: 30px !important;
+        padding: 12px 30px !important;
+        display: inline-block;
+        white-space: nowrap; /* Impede o texto do botão de quebrar em 3 linhas */
+    }
+}
 
 /* NOVO TOPO PROFISSIONAL */
 /* 2. AJUSTE DO HERO (Para alinhar com a cor da tabela) */
