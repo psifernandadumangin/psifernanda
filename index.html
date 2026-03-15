@@ -23,20 +23,29 @@
 <header>
     <div class="logo">
         <div class="logo-icon">
-            <i class="fas fa-hand-holding-heart"></i> </div>
+            <i class="fas fa-hand-holding-heart"></i>
+        </div>
         <span>Psicóloga Fernanda Dumangin</span>
     </div>
 
-    <nav>
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <nav class="nav-menu" id="nav-menu">
         <ul>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#abordagem">Abordagem</a></li>
             <li>
-                <button id="theme-toggle" style="background:none; border:none; cursor:pointer; font-size:1.2rem;">
-                <i id="theme-icon" class="fas fa-moon"></i>
+                <button id="theme-toggle" style="background:none; border:none; cursor:pointer; font-size:1.2rem; padding: 0;">
+                    <i id="theme-icon" class="fas fa-moon"></i>
                 </button>
             </li>
-            <li><a href="https://wa.me/5511989405665?text=Olá%20Fernanda,%20gostaria%20de%20maiores%20informações%20sobre%20o%20agendamento%20de%20consulta." class="btn-nav" target="_blank">Agende sua Sessão</a></li>
+            <li>
+                <a href="https://wa.me/5511989405665?text=Olá%20Fernanda,%20gostaria%20de%20maiores%20informações%20sobre%20o%20agendamento%20de%20consulta." class="btn-nav" target="_blank">Agende sua Sessão</a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -260,6 +269,27 @@
             localStorage.setItem('theme', 'light');
             themeIcon.classList.replace('fa-sun', 'fa-moon');
         }
+    });
+</script>
+
+<script>
+    // 1. Seleciona o ícone hamburguer e o menu de links
+    const menuToggle = document.querySelector('#mobile-menu');
+    const navMenu = document.querySelector('#nav-menu');
+    
+    // 2. Seleciona todos os links (tags <a>) que estão dentro do menu
+    const navLinks = document.querySelectorAll('#nav-menu a');
+
+    // 3. Quando clicar no ícone hamburguer, abre ou fecha o menu
+    menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+    });
+
+    // 4. MÁGICA EXTRA: Quando clicar em qualquer link, fecha o menu automaticamente
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+        });
     });
 </script>    
 </body>
