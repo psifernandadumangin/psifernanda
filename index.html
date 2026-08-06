@@ -17,6 +17,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18369501988"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18369501988');
+    </script>
 </head>
 <body>
 
@@ -55,7 +63,7 @@
             <div class="hero-content">
                 <h1>BEM VINDO!</h1>
                 <p>A decisão de iniciar a psicoterapia é um gesto de cuidado consigo mesmo. É um espaço seguro e acolhedor onde é possível elaborar experiências, compreender sentimentos e lidar de forma mais saudável com os desafios da vida. Cuidar da saúde mental é um ato de coragem. Agenda a sua sessão.</p>
-                <a href="https://wa.me/5511989405665?text=Olá%20Fernanda,%20gostaria%20de%20maiores%20informações%20sobre%20o%20agendamento%20de%20consulta." class="cta-button">
+                <a href="https://wa.me/5511989405665?text=Olá%20Fernanda,%20gostaria%20de%20maiores%20informações%20sobre%20o%20agendamento%20de%20consulta." class="cta-button" target="_blank" rel="noopener">
                     <i class="fab fa-whatsapp"></i> Agende pelo WhatsApp
                 </a>
             </div>
@@ -291,6 +299,33 @@
             navMenu.classList.remove('active');
         });
     });
-</script>    
+</script>
+    <!-- Conversão Google Ads: clique nos botões do WhatsApp -->
+<script>
+    document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            var url = link.href;
+            var abreNovaAba = link.target === '_blank';
+            var jaRedirecionou = false;
+
+            function irParaWhatsApp() {
+                if (jaRedirecionou) return;
+                jaRedirecionou = true;
+                window.location.href = url;
+            }
+
+            if (!abreNovaAba) e.preventDefault();
+
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18369501988/qWDkCOLgvdscEKS2obdE',
+                'value': 1.0,
+                'currency': 'BRL',
+                'event_callback': abreNovaAba ? undefined : irParaWhatsApp
+            });
+
+            if (!abreNovaAba) setTimeout(irParaWhatsApp, 1000);
+        });
+    });
+</script>
 </body>
 </html>
